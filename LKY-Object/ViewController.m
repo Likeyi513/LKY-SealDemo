@@ -28,9 +28,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     n = 0;
+    
+    // 创建控件
+    [self setSubViews];
+    
+    // 创建书库库
+    [self setDateHouse];
+    
+    // 二分查算法
+    [self TwoSeek];
+    
+}
+-(void)TwoSeek{
+    //二分查算法(求出指定的数据在数组的位置)  的前提是 数组的元素必须已经排列好的  混排的数组无效
+    NSArray *dateArray = @[@1,@8,@11,@15,@18,@20,@22,@40,@46,@60,@70,@78,@99,@110];
+    NSInteger searchNumber = 22;  // 要查找的数据
+    NSInteger min,mid,max;
+    min = 0;
+    max = dateArray.count  - 1;
+    BOOL found;
+    
+    while (min <= max) {
+        mid = (min + max)/2;          // 数组中间的下标
+        if (searchNumber == [dateArray[mid] integerValue]) {
+            NSLog(@"searchNumber在第%ld的位置",(long)mid);
+            found = YES;
+            break;
+        }else if(searchNumber > [dateArray[mid] integerValue]){
+            min = mid + 1;
+        }else if (searchNumber < [dateArray[mid] integerValue]){
+            max = mid - 1;
+        }
+    }
+    
+    if (found == NO) {
+        NSLog(@"未找到指定数据");
+    }
+    
+    
+}
+-(void)setDateHouse{
+    // 数据库路径
+    _file = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"lkyDB.sqlist"];
+    NSLog(@"数据库路径 %@",_file);
+    [[LKYFengZhuang shareLkYFengZhuang] open:_file];
+    // 创建 表 SQL语句
+    //2.执行sqlite语句
+    NSString *createSql = [NSString stringWithFormat:@"create table if not exists 'ListBDD' ('number' integer primary key autoincrement not null,'name' text,'age'integer,'sex' text)"];
+    // 执行SQL  语句
+    [[LKYFengZhuang shareLkYFengZhuang] updateSQL:createSql];
+    
+}
+-(void)setSubViews{
     UILabel *Namelabel =  [[LKYFengZhuang shareLkYFengZhuang] createLabelFrame:CGRectMake(100, 100, 50, 30) text:@"Name" textColor:[UIColor redColor] textFont:[UIFont systemFontOfSize:15] textAlignment:NSTextAlignmentCenter backGroupColor:[UIColor blueColor]];
     [self.view addSubview:Namelabel];
-
+    
     UILabel *Agelabel =  [[LKYFengZhuang shareLkYFengZhuang] createLabelFrame:CGRectMake(180, 100, 50, 30) text:@"Age" textColor:[UIColor redColor] textFont:[UIFont systemFontOfSize:15] textAlignment:NSTextAlignmentCenter backGroupColor:[UIColor blueColor]];
     [self.view addSubview:Agelabel];
     
@@ -52,7 +104,7 @@
     SexTextView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:SexTextView];
     
-
+    
     UIButton *btn = [[LKYFengZhuang shareLkYFengZhuang] createButtonFrame:CGRectMake(100, 250, 80, 80) setImage:nil setbackGroupColor:[UIColor whiteColor] setTitle:@"查询数据库" setTitleColor:[UIColor blackColor] addTarget:self Action:@selector(selectSQLlist)];
     [self.view addSubview:btn];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -69,20 +121,8 @@
     closeBtn = [[LKYFengZhuang shareLkYFengZhuang]createButtonFrame:CGRectMake(250, 360, 80, 80) setImage:nil setbackGroupColor:[UIColor whiteColor] setTitle:@"关闭数据库" setTitleColor:[UIColor blackColor] addTarget:self Action:@selector(closeORopen)];
     [self.view addSubview:closeBtn];
     closeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    
-    // 数据库路径
-    _file = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject] stringByAppendingPathComponent:@"lkyDB.sqlist"];
-    NSLog(@"数据库路径 %@",_file);
-    [[LKYFengZhuang shareLkYFengZhuang] open:_file];
-    // 创建 表 SQL语句
-    //2.执行sqlite语句
-    NSString *createSql = [NSString stringWithFormat:@"create table if not exists 'ListBDD' ('number' integer primary key autoincrement not null,'name' text,'age'integer,'sex' text)"];
-    // 执行SQL  语句
-    [[LKYFengZhuang shareLkYFengZhuang] updateSQL:createSql];
-    
-    
+  
 }
-
 -(void)selectSQLlist{
     NSArray *result = [[LKYFengZhuang shareLkYFengZhuang] selectAllWithList:@"ListBDD" AndListNumber:4];
     NSLog(@"查询数据库数据-----%@",result);
@@ -135,26 +175,6 @@
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
