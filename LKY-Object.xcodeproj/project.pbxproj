@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33823223F3B9E4DDB586223C /* libPods-LKY-Object.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 183F160DAF9F178F86DB9154 /* libPods-LKY-Object.a */; };
+		8A5E275E1E7B69FB00C88CE1 /* LKYNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5E275D1E7B69FB00C88CE1 /* LKYNetWorkTool.m */; };
 		8A6B62771E5BE9BA00BE72A1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6B62761E5BE9BA00BE72A1 /* libsqlite3.0.tbd */; };
 		8A998C1C1E5ADBE800EEFF0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A998C1B1E5ADBE800EEFF0B /* main.m */; };
 		8A998C1F1E5ADBE800EEFF0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A998C1E1E5ADBE800EEFF0B /* AppDelegate.m */; };
@@ -37,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05CA660828ED6E64E34921A3 /* Pods-LKY-Object.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKY-Object.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LKY-Object/Pods-LKY-Object.debug.xcconfig"; sourceTree = "<group>"; };
+		183F160DAF9F178F86DB9154 /* libPods-LKY-Object.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LKY-Object.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		188684C217E82263B9808532 /* Pods-LKY-Object.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKY-Object.release.xcconfig"; path = "Pods/Target Support Files/Pods-LKY-Object/Pods-LKY-Object.release.xcconfig"; sourceTree = "<group>"; };
+		8A5E275C1E7B69FB00C88CE1 /* LKYNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKYNetWorkTool.h; sourceTree = "<group>"; };
+		8A5E275D1E7B69FB00C88CE1 /* LKYNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKYNetWorkTool.m; sourceTree = "<group>"; };
 		8A6B62761E5BE9BA00BE72A1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		8A998C171E5ADBE800EEFF0B /* LKY-Object.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LKY-Object.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A998C1B1E5ADBE800EEFF0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A6B62771E5BE9BA00BE72A1 /* libsqlite3.0.tbd in Frameworks */,
+				33823223F3B9E4DDB586223C /* libPods-LKY-Object.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8A6B62761E5BE9BA00BE72A1 /* libsqlite3.0.tbd */,
+				183F160DAF9F178F86DB9154 /* libPods-LKY-Object.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 				8A998C3E1E5ADBE800EEFF0B /* LKY-ObjectUITests */,
 				8A998C181E5ADBE800EEFF0B /* Products */,
 				8A6B62751E5BE9BA00BE72A1 /* Frameworks */,
+				BFBE328CD621A9A225561BBA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +132,8 @@
 				8A998C211E5ADBE800EEFF0B /* ViewController.m */,
 				8A998C4D1E5ADC2E00EEFF0B /* LKYFengZhuang.h */,
 				8A998C4E1E5ADC2E00EEFF0B /* LKYFengZhuang.m */,
+				8A5E275C1E7B69FB00C88CE1 /* LKYNetWorkTool.h */,
+				8A5E275D1E7B69FB00C88CE1 /* LKYNetWorkTool.m */,
 				8A998C231E5ADBE800EEFF0B /* Main.storyboard */,
 				8A998C261E5ADBE800EEFF0B /* Assets.xcassets */,
 				8A998C281E5ADBE800EEFF0B /* LaunchScreen.storyboard */,
@@ -157,6 +169,15 @@
 			path = "LKY-ObjectUITests";
 			sourceTree = "<group>";
 		};
+		BFBE328CD621A9A225561BBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05CA660828ED6E64E34921A3 /* Pods-LKY-Object.debug.xcconfig */,
+				188684C217E82263B9808532 /* Pods-LKY-Object.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A998C441E5ADBE800EEFF0B /* Build configuration list for PBXNativeTarget "LKY-Object" */;
 			buildPhases = (
+				07DD02583706990227D5F818 /* [CP] Check Pods Manifest.lock */,
 				8A998C141E5ADBE800EEFF0B /* Frameworks */,
 				8A998C131E5ADBE800EEFF0B /* Sources */,
 				8A998C151E5ADBE800EEFF0B /* Resources */,
+				FEDE7023081A526FC4CA0EEB /* [CP] Embed Pods Frameworks */,
+				9E6FA6EACA30ECBB481DB1E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,11 +310,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07DD02583706990227D5F818 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9E6FA6EACA30ECBB481DB1E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKY-Object/Pods-LKY-Object-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEDE7023081A526FC4CA0EEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKY-Object/Pods-LKY-Object-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A998C131E5ADBE800EEFF0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5E275E1E7B69FB00C88CE1 /* LKYNetWorkTool.m in Sources */,
 				8A998C221E5ADBE800EEFF0B /* ViewController.m in Sources */,
 				8A998C1F1E5ADBE800EEFF0B /* AppDelegate.m in Sources */,
 				8A998C1C1E5ADBE800EEFF0B /* main.m in Sources */,
@@ -441,6 +514,7 @@
 		};
 		8A998C451E5ADBE800EEFF0B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05CA660828ED6E64E34921A3 /* Pods-LKY-Object.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -454,6 +528,7 @@
 		};
 		8A998C461E5ADBE800EEFF0B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 188684C217E82263B9808532 /* Pods-LKY-Object.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
